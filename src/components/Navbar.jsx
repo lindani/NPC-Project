@@ -2,7 +2,7 @@ import { Menu, X, HeartHandshake, UserPlus, Quote, Info, Target } from "lucide-r
 import { useState, useEffect } from 'react'
 import toast from 'react-hot-toast';
 
-import logo from '../assets/logo4.png'
+import logo from '../assets/nav-logo.png'
 import { navItems } from '../constants'
 import showCustomToast from './ui/CustomToast'
 const Navbar = () => {

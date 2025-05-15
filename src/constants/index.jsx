@@ -8,11 +8,11 @@ import user4 from "../assets/profile-pictures/user4.jpg";
 import user5 from "../assets/profile-pictures/user5.jpg";
 import user6 from "../assets/profile-pictures/user6.jpg";
 import youthMentorship from "../assets/objectives/youth-mentorship.jpg";
-import healthyLifestyle from "../assets/objectives/healthy-lifestyle.jpeg"
-import socialCohesion from "../assets/objectives/social-cohesion.jpeg"
-import skillsDevelopment from "../assets/objectives/Skills-development.jpeg"
-import youthEmploymentEntrepreneurial from "../assets/objectives/Youth-Employment-Entrepreneurial .jpeg"
-import reIntergration from "../assets/objectives/Re-intergration.jpeg"
+import healthyLifestyle from "../assets/objectives/healthy-lifestyle.jpg"
+import socialCohesion from "../assets/objectives/social-cohesion.jpg"
+import skillsDevelopment from "../assets/objectives/Skills-development.jpg"
+import youthEmploymentEntrepreneurial from "../assets/objectives/Youth-Employment-Entrepreneurial.jpg"
+import reIntergration from "../assets/objectives/Re-intergration.jpg"
 
 export const navItems = [
   { label: "About", href: "#about" },

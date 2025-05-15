@@ -25,7 +25,7 @@ const CustomCard = ({
   return (
     <Card className={`w-full h-full flex flex-col justify-between bg-white hover:shadow-xl ${className}`}>
       {headerContent || image ? (
-        <CardHeader floated={false} className={`h-48 ${headerClassName}`}>
+        <CardHeader floated={false} className={`h-100 ${headerClassName}`}>
           {image && (
             <img src={image} alt={title || "Card image"} className="w-full h-full object-cover rounded-lg" />
           )}
