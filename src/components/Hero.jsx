@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
-import ContactModal from "./ui/ContactModal";
+// import ContactModal from "./ui/ContactModal";
 import { objectives } from '../constants';
 
 // const images = ["/bg1.jpg", "/bg2.jpg", "/bg3.jpg"];
@@ -85,7 +85,7 @@ const Hero = () => {
           </a>
         </div>
 
-        <ContactModal isOpen={showContact} onClose={() => setShowContact(false)} />
+        {/* <ContactModal isOpen={showContact} onClose={() => setShowContact(false)} /> */}
       </div>
     </div>
   );

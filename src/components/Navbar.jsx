@@ -42,11 +42,11 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center flex-shrink-0">
             <img className="h-12 w-12 mr-2" src={logo} alt="logo" />
-            <a href="#" className={`font-bold text-xl text-white`}>
-              Ndithini Foundation
-            </a>
+            	<a href="#" className={`font-bold text-xl ${isScrolled ? 'text-orange-800' : 'text-white'}`}>
+								Ndithini Foundation
+							</a>
           </div>
-          <ul className={`hidden lg:flex ml-14 space-x-12 text-white`}>
+          <ul className={`hidden lg:flex ml-14 space-x-12 ${isScrolled ? 'text-orange-800' : 'text-white'}`}>
             {navItems.map((item, index) => (
               <li key={index}>
                 <a href={item.href}>{item.label}</a>
@@ -67,7 +67,7 @@ const Navbar = () => {
                   }
                 });
               }}
-              className="py-2 px-3 border rounded-md text-white"
+              className={`py-2 px-3 border rounded-md ${isScrolled ? 'text-orange-800' : 'text-white'}`}
             >
               Support Us
             </a>
