@@ -6,6 +6,11 @@
   color-scheme: light dark;
 }
 
+body {
+  @apply bg-neutral-900 text-white;
+}
+
+
 /* Add to your global.css */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;

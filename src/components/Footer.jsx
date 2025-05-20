@@ -17,16 +17,16 @@ const Footer = () => {
 
         {/* Social icons */}
         <div className="flex space-x-4 mb-4">
-          <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/NDITHINI/" target="_blank" rel="noopener noreferrer">
             <FaFacebook className="text-white hover:text-blue-500 text-xl" />
           </a>
-          <a href="https://twitter.com/yourpage" target="_blank" rel="noopener noreferrer">
+          <a href="https://x.com/NdithiniT" target="_blank" rel="noopener noreferrer">
             <FaTwitter className="text-white hover:text-blue-400 text-xl" />
           </a>
           <a href="https://instagram.com/yourpage" target="_blank" rel="noopener noreferrer">
             <FaInstagram className="text-white hover:text-pink-500 text-xl" />
           </a>
-          <a href="https://linkedin.com/in/yourpage" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/ndithini-tyhido-90092b89/?originalSubdomain=za" target="_blank" rel="noopener noreferrer">
             <FaLinkedin className="text-white hover:text-blue-700 text-xl" />
           </a>
         </div>
