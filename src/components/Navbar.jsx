@@ -32,21 +32,23 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  const textColor = isScrolled ? 'text-orange-800' : 'text-white';
+
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-md ${
-        isScrolled ? 'bg-black/40 border-b border-neutral-700/50 py-3' : 'bg-black/10 py-2'
+      className={`fixed top-0 w-full z-50 transition-all duration-300 bg-transparent ${
+        isScrolled ? 'bg-black/40 border-b border-neutral-700/50 py-2 backdrop-blur-md' : 'bg-black/10 py-2 '
       } ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}
     >
       <div className="container px-4 mx-auto relative text-sm">
         <div className="flex justify-between items-center">
           <div className="flex items-center flex-shrink-0">
             <img className="h-12 w-12 mr-2" src={logo} alt="logo" />
-            	<a href="#" className={`font-bold text-xl ${isScrolled ? 'text-orange-800' : 'text-white'}`}>
+            	<a href="#" className={`font-bold text-xl ${textColor}`}>
 								Ndithini Foundation
 							</a>
           </div>
-          <ul className={`hidden lg:flex ml-14 space-x-12 ${isScrolled ? 'text-orange-800' : 'text-white'}`}>
+          <ul className={`hidden lg:flex ml-14 space-x-12 ${textColor} font-bold`}>
             {navItems.map((item, index) => (
               <li key={index}>
                 <a href={item.href}>{item.label}</a>
@@ -67,12 +69,12 @@ const Navbar = () => {
                   }
                 });
               }}
-              className={`py-2 px-3 border rounded-md ${isScrolled ? 'text-orange-800' : 'text-white'}`}
+              className={`py-2 px-3 border rounded-md ${textColor} font-bold`}
             >
               Support Us
             </a>
             <a
-              className="bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 border rounded-md text-white"
+              className="bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 border rounded-md text-white font-bold"
               href="#"
               onClick={(e) => {
                 e.preventDefault();
@@ -89,7 +91,7 @@ const Navbar = () => {
               Create an account
             </a>
           </div>
-          <div className={`lg:hidden md:flex flex-col justify-end text-white`}>
+          <div className={`lg:hidden md:flex flex-col justify-end text-orange-500`}>
             <button onClick={toggleNavbar}>
               {mobileDrawerOpen ? <X /> : <Menu />}
             </button>
