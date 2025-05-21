@@ -53,7 +53,7 @@ const Hero = () => {
       <div ref={heroRef} className="relative z-10 max-w-3xl mx-auto text-center">
         <div className="fade-in">
           <TextGenerateEffect
-            className="text-5xl sm:text-7xl lg:text-8xl text-center tracking-wide"
+            className="text-5xl sm:text-7xl lg:text-8xl text-center tracking-wide font-bold"
             words={
               <>
                 Mentoring Minds,{" "}
@@ -65,11 +65,11 @@ const Hero = () => {
           />
         </div>
 
-        <p className="fade-in mt-10 text-lg text-center text-neutral-200 max-w-4xl">
+        <p className="fade-in mt-10 text-lg text-center text-neutral-200 max-w-4xl font-bold">
           We are a grassroots foundation committed to unlocking potential in under-resourced communities...
         </p>
 
-        <div className="fade-in flex justify-center my-10 gap-4">
+        <div className="fade-in flex justify-center my-10 gap-4 font-bold">
           <a href="#about" className="bg-gradient-to-r from-orange-500 to-orange-800 py-3 px-3 border rounded-md text-white">
             Read More
           </a>
@@ -79,7 +79,7 @@ const Hero = () => {
               setShowContact(true);
             }}
             href="#"
-            className="py-3 px-4 border rounded-md text-white"
+            className="py-3 px-4 border rounded-md text-white font-bold"
           >
             Contact Us
           </a>
