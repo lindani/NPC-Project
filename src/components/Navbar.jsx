@@ -1,4 +1,4 @@
-import { Menu, X, HeartHandshake, UserPlus, Quote, Info, Target } from "lucide-react";
+import { Menu, X, HeartHandshake, UserPlus, Quote, Info, Target, GalleryVertical } from "lucide-react";
 import { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 
@@ -110,6 +110,7 @@ const Navbar = () => {
                   {item.label === 'Testimonials' && <Quote size={20} />}
                   {item.label === 'About' && <Info size={20} />}
                   {item.label === 'Objectives' && <Target size={20} />}
+                  {item.label === 'Gallery' && <GalleryVertical size={20} />}
                   <a href={item.href}>{item.label}</a>
                 </li>
               ))}

@@ -6,6 +6,7 @@ import Objectives from './components/Objectives'
 import About from './components/About'
 import Footer from './components/Footer'
 import Testimonial from './components/Testimonials'
+import AnimatedGallery from './components/AnimatedGallery'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Navbar />
       <Hero />
       <About />
+      <AnimatedGallery />
       <Objectives />
       <Testimonial />
       <Footer />

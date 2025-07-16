@@ -16,8 +16,8 @@ import reIntergration from "../assets/objectives/Re-intergration.jpg"
 
 export const navItems = [
   { label: "About", href: "#about" },
+  { label: "Gallery", href: "#gallery" },
   { label: "Objectives", href: "#objectives" },
-  // { label: "Pricing", href: "#" },
   { label: "Testimonials", href: "#testimonials" },
 ];
 

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100..900&display=swap&text=YourFoundationName');
 @import "tailwindcss";
 
+/* Root font and theme setup */
 :root {
   font-family: Poppins, sans-serif;
   color-scheme: light dark;
@@ -10,8 +11,7 @@ body {
   @apply bg-neutral-900 text-white;
 }
 
-
-/* Add to your global.css */
+/* Hide scrollbar across browsers */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -20,4 +20,159 @@ body {
   scrollbar-width: none;
 }
 
-/* rest of your CSS */
+/* ---------- Animations ---------- */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* ---------- Scrolling Gallery Styles ---------- */
+.continuous-scroll-container {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  padding: 45px 0;
+}
+
+.scroll-wrapper,
+.scroll-wrapper-reverse {
+  display: flex;
+  width: max-content;
+  animation: scrollLeft 40s linear infinite;
+  animation-play-state: running;
+}
+
+.scroll-wrapper-reverse {
+  animation-name: scrollRight;
+}
+
+.scroll-wrapper:hover,
+.scroll-wrapper-reverse:hover {
+  animation-play-state: paused;
+}
+
+.scroll-item {
+  flex-shrink: 0;
+  width: 300px;
+  height: 300px;
+  margin: 0 15px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.scroll-item-image-wrapper {
+  height: 70%;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+}
+
+.scroll-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scroll-item-title {
+  height: 30%;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  white-space: normal;
+  line-height: 1.3;
+}
+
+/* ---------- Modal Styles ---------- */
+.modal-overlay {
+  @apply fixed inset-0 bg-black/75 backdrop-blur-sm z-50 flex items-center justify-center;
+}
+
+.modal-content {
+  @apply relative bg-white p-6 rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] flex flex-col items-center overflow-hidden;
+}
+
+.modal-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.modal-close-button {
+  @apply absolute top-3 right-3 text-white bg-red-600 rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-red-700 transition;
+}
+
+/* ---------- Responsive Tweaks ---------- */
+@media (max-width: 768px) {
+  .scroll-item {
+    width: 250px;
+    height: 220px;
+    margin: 0 10px;
+  }
+  .scroll-item-image-wrapper {
+    height: 65%;
+  }
+  .scroll-item-title {
+    height: 35%;
+    font-size: 1rem;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-item {
+    width: 200px;
+    height: 190px;
+    margin: 0 8px;
+  }
+  .scroll-item-image-wrapper {
+    height: 60%;
+  }
+  .scroll-item-title {
+    height: 40%;
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+}
