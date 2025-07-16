@@ -58,17 +58,41 @@ import { Typography } from "@material-tailwind/react";
   ];
 
 const AnimatedGallery = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null); // Instead of selectedImage
+  const selectedImage = selectedIndex !== null
+  ? [...images, ...imagesReverse].find((_, i) => i === selectedIndex)
+  : null;
   const scrollWrapperRef = useRef(null);
   const scrollWrapperReverseRef = useRef(null);
 
   useEffect(() => {
-    document.body.style.overflow = selectedImage ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
-  }, [selectedImage]);
+    const handleKeyDown = (e) => {
+      if (selectedIndex === null) return;
+      if (e.key === 'ArrowRight') showNextImage();
+      if (e.key === 'ArrowLeft') showPreviousImage();
+      if (e.key === 'Escape') closeModal();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedIndex]);
 
-  const openModal = (image) => setSelectedImage(image);
-  const closeModal = () => setSelectedImage(null);
+  const openModal = (index) => {
+    setSelectedIndex(index);
+  };
+
+  const closeModal = () => {
+    setSelectedIndex(null);
+  };
+
+  const totalImages = [...images, ...imagesReverse].length;
+
+  const showNextImage = () => {
+    setSelectedIndex((prev) => (prev + 1) % totalImages);
+  };
+
+  const showPreviousImage = () => {
+    setSelectedIndex((prev) => (prev - 1 + totalImages) % totalImages);
+  };
 
   return (
     <section id="gallery" className="min-h-screen py-20 px-4 bg-gray-50">
@@ -91,7 +115,7 @@ const AnimatedGallery = () => {
               <div
                 key={`${image.id}-${index}-row1`}
                 className="scroll-item"
-                onClick={() => openModal(image)}
+                onClick={() => openModal(index)}
               >
                 <img
                   loading="lazy"
@@ -115,7 +139,7 @@ const AnimatedGallery = () => {
               <div
                 key={`${image.id}-${index}-row2`}
                 className="scroll-item"
-                onClick={() => openModal(image)}
+                onClick={() => openModal(index)}
               >
                 <img
                   loading="lazy"
@@ -140,25 +164,42 @@ const AnimatedGallery = () => {
           onClick={closeModal}
         >
           <div
-            className="relative bg-white rounded-xl overflow-hidden shadow-2xl max-w-4xl w-full max-h-[90vh] flex flex-col"
+            className="relative bg-white rounded-xl overflow-hidden shadow-2xl max-w-4xl w-full max-h-[90vh] flex flex-col items-center"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Close */}
             <button
-              className="absolute top-3 right-3 text-white bg-red-600 rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-red-700 transition"
+              className="absolute top-3 right-3 text-white bg-orange-600 rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-red-700 transition"
               onClick={closeModal}
-              aria-label="Close image view"
             >
               &times;
             </button>
+
+            {/* Prev */}
+            <button
+              onClick={showPreviousImage}
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-white bg-black/50 hover:bg-orange-600 rounded-full w-10 h-10 text-2xl flex items-center justify-center"
+            >
+              &#8592;
+            </button>
+
+            {/* Image */}
             <img
               src={selectedImage.src}
               alt={selectedImage.alt}
-              className="object-contain w-full h-full max-h-[90vh]"
+              className="object-contain w-full h-full max-h-[80vh]"
             />
+
+            {/* Next */}
+            <button
+              onClick={showNextImage}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-white bg-black/50 hover:bg-orange-600 rounded-full w-10 h-10 text-2xl flex items-center justify-center"
+            >
+              &#8594;
+            </button>
           </div>
         </div>
       )}
-
     </section>
   );
 };
