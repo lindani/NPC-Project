@@ -89,8 +89,6 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  display: flex;
-  flex-direction: column;
 }
 
 .scroll-item:hover {
@@ -98,81 +96,8 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.scroll-item-image-wrapper {
-  height: 70%;
-  overflow: hidden;
-  border-radius: 12px 12px 0 0;
-}
-
-.scroll-item img {
+.scroll-item-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.scroll-item-title {
-  height: 30%;
-  padding: 10px 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #333;
-  white-space: normal;
-  line-height: 1.3;
-}
-
-/* ---------- Modal Styles ---------- */
-.modal-overlay {
-  @apply fixed inset-0 bg-black/75 backdrop-blur-sm z-50 flex items-center justify-center;
-}
-
-.modal-content {
-  @apply relative bg-white p-6 rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] flex flex-col items-center overflow-hidden;
-}
-
-.modal-content img {
-  max-width: 100%;
-  max-height: 80vh;
-  object-fit: contain;
-  border-radius: 8px;
-}
-
-.modal-close-button {
-  @apply absolute top-3 right-3 text-white bg-red-600 rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-red-700 transition;
-}
-
-/* ---------- Responsive Tweaks ---------- */
-@media (max-width: 768px) {
-  .scroll-item {
-    width: 250px;
-    height: 220px;
-    margin: 0 10px;
-  }
-  .scroll-item-image-wrapper {
-    height: 65%;
-  }
-  .scroll-item-title {
-    height: 35%;
-    font-size: 1rem;
-    padding: 8px 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .scroll-item {
-    width: 200px;
-    height: 190px;
-    margin: 0 8px;
-  }
-  .scroll-item-image-wrapper {
-    height: 60%;
-  }
-  .scroll-item-title {
-    height: 40%;
-    font-size: 0.9rem;
-    padding: 6px 10px;
-  }
 }
