@@ -178,7 +178,8 @@ const AnimatedGallery = () => {
             {/* Prev */}
             <button
               onClick={showPreviousImage}
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-white bg-black/50 hover:bg-orange-600 rounded-full w-10 h-10 text-2xl flex items-center justify-center"
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-white bg-black/50 hover:bg-orange-600
+                        rounded-full w-14 h-14 text-4xl flex items-center justify-center"
             >
               &#8592;
             </button>
@@ -193,7 +194,8 @@ const AnimatedGallery = () => {
             {/* Next */}
             <button
               onClick={showNextImage}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-white bg-black/50 hover:bg-orange-600 rounded-full w-10 h-10 text-2xl flex items-center justify-center"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-white bg-black/50 hover:bg-orange-600
+                        rounded-full w-14 h-14 text-3xl flex items-center justify-center"
             >
               &#8594;
             </button>
